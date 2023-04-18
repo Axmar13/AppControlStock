@@ -1,0 +1,23 @@
+{
+  "name": "appcontrolstock",
+  "version": "1.0.0",
+  "description": "programación itec 2023",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/Axmar13/AppControlStock"
+  },
+  "author": "Axel Del Medico",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
