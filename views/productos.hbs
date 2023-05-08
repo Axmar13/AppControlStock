@@ -1,0 +1,22 @@
+<h1>Productos</h1>
+
+<div class="card mx-auto" style="max-width: 50%;">
+    <table class="table">
+    <thead>
+        <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">id_categoria</th>
+        </tr>
+    </thead>
+    <tbody>
+       {{#each productos}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{nombre}}</td>
+            <td>{{id_categoria}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+    </table>
+</div>

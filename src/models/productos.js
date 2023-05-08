@@ -30,7 +30,15 @@ modeloProducto.obtenerUnProducto = async (id) => {
     let sql = "SELECT * FROM productos WHERE id = "+id;
     let producto = await db.query(sql);
     console.log(producto);
-    return producto[0];
+    return producto;
 }
+
+modeloProducto.obtenerProductosPorCategoria = async (id_categoria) => {
+    let sql = "SELECT * FROM productos WHERE id_categoria = "+id_categoria;
+//await provoca que si o si termine de comunicarse con la base de datos para continuar
+    let productos = await db.query(sql);
+    console.log(productos);
+    return productos;
+} 
 
 module.exports = modeloProducto;

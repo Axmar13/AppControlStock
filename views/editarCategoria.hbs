@@ -1,0 +1,11 @@
+<div>
+    <h1>Editar la categoria: {{categoria.nombre}}</h1>
+
+    <form action="/editarCategoria/{{categoria.id}}" method="post">
+        <label for="">
+            <strong>Nombre: </strong>
+            <input type="text" name="nombre" value="{{nombre}}">
+            <button type="submit">Aceptar</button>
+        </label>
+    </form>
+</div>

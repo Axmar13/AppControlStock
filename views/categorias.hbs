@@ -1,0 +1,31 @@
+<h1>Categorias</h1>
+<a href="/nuevaCategoria">Agregar categoria</a>
+
+<div class="card mx-auto" style="max-width: 50%;">
+    <table class="table">
+    <thead>
+        <tr>
+        <th scope="col">id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Cantidad de Productos</th>
+        <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+       {{#each categorias}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{nombre}}</td>
+            <td>{{productos.length}}</td>
+            <td>
+                <a href="/DetalleCategoria/{{id}}">Ver</a>
+                <a href="/editarCategoria/{{id}}">Editar</a>
+                <form action="/eliminarCategoria/{{id}}" method="post">
+                <button type="submit">Eliminar</button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+    </table>
+</div>
