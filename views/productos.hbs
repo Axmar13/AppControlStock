@@ -1,22 +1,21 @@
 <h1>Productos</h1>
+<form action="/nuevoProducto" method="get">
+    <button type="submit">Agregar producto</button></form>
 
-<div class="card mx-auto" style="max-width: 50%;">
-    <table class="table">
-    <thead>
-        <tr>
-        <th scope="col">id</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">id_categoria</th>
-        </tr>
-    </thead>
+<div class="row mx-auto" style="max-width: 50%;">
     <tbody>
        {{#each productos}}
-        <tr>
-            <td>{{id}}</td>
-            <td>{{nombre}}</td>
-            <td>{{id_categoria}}</td>
-        </tr>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{nombre}}</h5>
+                <a href="/detalleCategoria/{{id_categoria}}">Categoria {{id_categoria}}</a><br>
+                <strong>Precio: $00.00</strong><br>
+                <a href="detalleProducto/" class="card-link">Detalles</a>
+                <a href="editarProducto/{{id}}" class="card-link">Editar</a>
+                <form action="/eliminarProducto/{{id}}" method="post">
+                <button type="submit">Eliminar</button></form>
+            </div>
+        </div>
         {{/each}}
     </tbody>
-    </table>
 </div>

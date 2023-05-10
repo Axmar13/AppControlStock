@@ -5,7 +5,7 @@ const modeloProductos = require('./productos')
 var modeloCategoria = {}; //Declara la variable como un objeto
 
 //async quiere decir que va a tener una pausa
-modeloCategoria.obtenerCategorias = async () => {
+modeloCategoria.obtenerCategorias = async () =>{
     let sql = "SELECT * FROM categorias"
 //await provoca que si o si termine de comunicarse con la base de datos para continuar
     let categorias = await db.query(sql)
@@ -19,7 +19,7 @@ modeloCategoria.obtenerCategorias = async () => {
     return categorias
 }
 
-modeloCategoria.nuevaCategoria = async (categoria) => {
+modeloCategoria.nuevaCategoria = async (categoria) =>{
 //SET ? guarda el dato que llega después
     let sql = "INSERT INTO categorias SET ?"
 
@@ -44,14 +44,14 @@ modeloCategoria.detalleCategoria = async (id) =>{
     return categorias
 }
 
-modeloCategoria.obtenerUnaCategoria = async (id) => {
+modeloCategoria.obtenerUnaCategoria = async (id) =>{
     let sql = "SELECT * FROM categorias WHERE id = "+id
     let categoria = await db.query(sql)
     console.log(categoria)
     return categoria[0]
 }
 
-modeloCategoria.eliminarCategoria = async (id, nombre) => {
+modeloCategoria.eliminarCategoria = async (id) =>{
     let sql = "DELETE FROM categorias WHERE id = "+id
     let categoria = await db.query(sql)
     if(categoria['affectedRows'] > 0){
@@ -61,7 +61,7 @@ modeloCategoria.eliminarCategoria = async (id, nombre) => {
     }
 }
 
-modeloCategoria.editarCategoria = async (id, nombre) => {
+modeloCategoria.editarCategoria = async (id, nombre) =>{
     let sql = "UPDATE categorias SET nombre = '"+nombre+"' WHERE id = "+id
     let categoria = await db.query(sql, {nombre, id})
     if(categoria['affectedRows'] > 0){

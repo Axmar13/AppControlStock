@@ -17,7 +17,7 @@ router.get('/productos', async (req, res) =>{
     res.render('productos', {productos:productos})
 })
 
-router.get('/DetalleCategoria/:id', async (req, res) =>{
+router.get('/detalleCategoria/:id', async (req, res) =>{
     let categoria = await modeloCategoria.detalleCategoria(req.params.id)
     res.render('detalleCategoria', {categoria})
 })
@@ -47,6 +47,39 @@ router.post('/nuevaCategoria', async (req, res) =>{
     }
     await modeloCategoria.nuevaCategoria(categoria)
     res.redirect('/categorias')
+})
+
+router.get('/detalleProducto', async (req, res)=>{
+    res.render('detalleProducto')
+})
+
+router.get('/editarProducto/:id', async (req, res)=>{
+    let producto = await modeloProducto.obtenerUnProducto(req.params.id)
+    res.render('editarProducto', {producto})
+})
+
+router.post('/editarProducto/:id', async (req, res)=>{
+    await modeloProducto.editarProducto(req.params.id, req.body.nombre)
+    res.redirect('/productos')
+})
+
+router.post('/eliminarProducto/:id', async (req, res) =>{
+    await modeloProducto.eliminarProducto(req.params.id)
+    res.redirect('/productos')
+})
+
+router.get('/nuevoProducto', async (req, res) =>{
+    let categorias = await modeloCategoria.obtenerCategorias()
+    res.render('nuevoProducto', {categorias})
+})
+
+router.post('/nuevoProducto', async (req, res) =>{
+    let producto = {
+        nombre:req.body.nombre,
+        id_categoria:req.body.categoria
+    }
+    await modeloProducto.nuevoProducto(producto)
+    res.redirect('/productos')
 })
 
 module.exports = router;
